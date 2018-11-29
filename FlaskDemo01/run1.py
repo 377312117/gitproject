@@ -72,8 +72,23 @@ def temp():
 # 模板的渲染,作业
 @app.route('/homework')
 def homework():
-    # 渲染homework.html并响应给客户端
-    str = render_template('homework.html',song='绿光',write_words='宝强',compose='乃亮',singer='羽凡')
+    # 方法2:渲染homework.html并响应给客户端
+    # 若变量较多,可以用字典作为容器,再用关键字取值
+    # dic = {
+    #     'song' : '绿光',
+    #     'write_words':'宝强',
+    #     'compose':'乃亮',
+    #     'singer':'羽凡'
+    # }
+
+    # 方法3:locals将变量收集为字典,html文件可以在该字典中进行取值
+    song = '绿光'
+    write_words='宝强'
+    compose='乃亮'
+    singer='羽凡'
+    # locals()的作用是将常量收入字典中
+    print(locals())
+    str = render_template('homework.html',params=locals())
     return str
 
 
