@@ -72,7 +72,7 @@ def temp():
 # 模板的渲染,作业
 @app.route('/homework')
 def homework():
-    # 渲染02_system.html并响应给客户端
+    # 渲染homework.html并响应给客户端
     str = render_template('homework.html',song='绿光',write_words='宝强',compose='乃亮',singer='羽凡')
     return str
 
